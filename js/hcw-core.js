@@ -131,9 +131,11 @@ function connect_and_send(server, what2send) {
 			var res = `[Full path]\n${full_url}\n\n[Hash only]\n${hash_url}\n`;
 			$('#output_msg').val(res);
 			// -- Copy full path
+			window.getSelection().removeAllRanges();
 			$('#hide_what2copy').val(full_url);
 			var e = document.getElementById("hide_what2copy");
 			e.select();
+			e.setSelectionRange(0, e.value.length);
 			document.execCommand("Copy");
 			alert(`-- URL IS COPIED --\n${full_url}`);
 		}
