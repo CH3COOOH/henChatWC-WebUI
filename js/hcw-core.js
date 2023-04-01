@@ -1,8 +1,9 @@
 // 2023.03.26: 1st live
 // 2023.03.27: Get url without params; no server error message in output_msg
 // 2023.03.31: Timeout and isOneTime become editable
+// 2023.04.01: Automatically copy generated url
 
-var CLIENT_VER = '230331';
+var CLIENT_VER = '230401';
 var DEFAULT_SERVER = 'wss://app.henchat.net/hcw';
 // var DEFAULT_SERVER = 'ws://127.0.0.1:9002';
 
@@ -125,10 +126,16 @@ function connect_and_send(server, what2send) {
 		if (getMsg.type === 0) {
 			// -- Result of message sending
 			console.log("[ws.onmessage] Server replies: OK");
-			var full_url = `[Full path]\n${getUrlWithoutParam()}?hash=${cache_0}&key=${$('#input_key').val()}\n\n`;
-			var hash_url = `[Hash only]\n${getUrlWithoutParam()}?hash=${cache_0}\n`;
-			var res = full_url + hash_url
+			var full_url = `${getUrlWithoutParam()}?hash=${cache_0}&key=${$('#input_key').val()}`;
+			var hash_url = `${getUrlWithoutParam()}?hash=${cache_0}`;
+			var res = `[Full path]\n${full_url}\n\n[Hash only]\n${hash_url}\n`;
 			$('#output_msg').val(res);
+			// -- Copy full path
+			$('#hide_what2copy').val(full_url);
+			var e = document.getElementById("hide_what2copy");
+			e.select();
+			document.execCommand("Copy");
+			alert(`-- URL IS COPIED --\n${full_url}`);
 		}
 		else if (getMsg.type === 1) {
 			// -- Get message from server
