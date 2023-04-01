@@ -137,7 +137,7 @@ function connect_and_send(server, what2send) {
 			e.select();
 			e.setSelectionRange(0, e.value.length);
 			document.execCommand("Copy");
-			alert(`-- URL IS COPIED --\n${full_url}`);
+			alert(`-- COPY URL BELOW --\n${full_url}`);
 		}
 		else if (getMsg.type === 1) {
 			// -- Get message from server
