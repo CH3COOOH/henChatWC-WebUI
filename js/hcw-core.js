@@ -2,8 +2,9 @@
 // 2023.03.27: Get url without params; no server error message in output_msg
 // 2023.03.31: Timeout and isOneTime become editable
 // 2023.04.01: Automatically copy generated url
+// 2023.04.22: Change title; and some tiny modifications
 
-var CLIENT_VER = '230401';
+var CLIENT_VER = '230401-1';
 var DEFAULT_SERVER = 'wss://app.henchat.net/hcw';
 // var DEFAULT_SERVER = 'ws://127.0.0.1:9002';
 
