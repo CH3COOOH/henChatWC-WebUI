@@ -142,9 +142,16 @@ function connect_and_send(server, what2send) {
 		}
 		else if (getMsg.type === 1) {
 			// -- Get message from server
-			fillMessageBoard(aesDecrypt(getMsg.payload, $('#input_key').val()));
+			var msg_plain = aesDecrypt(getMsg.payload, $('#input_key').val());
+			fillMessageBoard(msg_plain);
+			if (msg_plain.length > 100) {
+				alert("**You received a long message. Please check the MESSAGE BOARD.");
+			} else {
+				alert("-- BEGIN MSG --\n" + msg_plain + "\n-- END MSG --");
+			}
 		}
 		else {
+			alert("**Unable to fetch the message.");
 			fillMessageBoard(getMsg.payload);
 		}
 	};
