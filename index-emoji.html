@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html><head>
 	<title>henChatWC</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<!-- Portable devices support -->
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no"/>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no">
 	<link rel="icon" href="./favicon.png" type="image/png">
 	<style type="text/css">
 		<!--
@@ -22,44 +21,44 @@
 <body>
 <div>
 <table width="100%" border="0" id="container">
-  <tr><td height="100%" align="left">
-	<label>MESSAGE BOARD</label>
+  <tbody><tr><td height="100%" align="left">
+	<label>📬📬📬</label>
     <textarea rows="10" class="form_input" id="output_msg"></textarea>
   </td></tr>
   <tr><td height="100%" align="left">
-	<label>MSG/HASH</label>
+	<label>✍🏻✍🏻✍🏻</label>
     <textarea rows="4" class="form_input" id="input_msg"></textarea>
   </td></tr>
    <tr><td height="100%" align="left">
-    <label>TIMEOUT</label>
+    <label>⏲️</label>
 	<select id="input_timeout">
 		<option value="">0.5 min</option>
 		<option value="">5 min</option>
 		<option value="">10 min</option>
 		<option value="">30 min</option>
 		<option value="">1 h</option>
-		<option value="">3 h</option>
+		<option value="" selected="selected">3 h</option>
 		<option value="">12 h</option>
 		<option value="">24 h</option>
 		<option value="">36 h</option>
 		<option value="">48 h</option>
 	</select>
-	<input type="checkbox" id="input_isOneTime" checked>
-	<label>ONE-TIME</label>
+	<input type="checkbox" id="input_isOneTime" checked="checked">
+	<label>🔥</label>
   </td></tr>
   <tr><td height="100%" align="left">
-	<label>KEY</label>
+	<label>🔐</label>
     <input type="text" class="form_input" id="input_key" maxlength="16">
   </td></tr>
   <tr><td height="100%" align="left">
-    <button id="btn_gen">Generate</button>
-    <button id="btn_fetch">Fetch</button>
+    <button id="btn_gen">📤</button>
+    <button id="btn_fetch">📩</button>
   </td></tr>
-  <tr><td height="100%" align="left">
+<!--   <tr><td height="100%" align="left">
     <br><a href="https://github.com/CH3COOOH/henChatWC-WebUI">View GitHub</a>
-  </td></tr>
+  </td></tr> -->
 
-</table>
+</tbody></table>
 </div>
 
 <input id="hide_what2copy" style="opacity: 0;position: absolute;">
@@ -67,5 +66,6 @@
 <script src="js/crypto-js/crypto-js.js"></script>
 <script src="js/hcw-core.js"></script>
 <script src="js/event.js"></script>
+
 </body>
 </html>
