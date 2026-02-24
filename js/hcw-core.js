@@ -3,8 +3,9 @@
 // 2023.03.31: Timeout and isOneTime become editable
 // 2023.04.01: Automatically copy generated url
 // 2023.04.22: Change title; and some tiny modifications
+// 2026.02.24: Fix a security issue: key is sent to server unexpectly
 
-var CLIENT_VER = '230401-1';
+var CLIENT_VER = '20260224-1';
 var DEFAULT_SERVER = 'wss://app.henchat.net/hcw';
 // var DEFAULT_SERVER = 'ws://127.0.0.1:9002';
 
@@ -14,7 +15,7 @@ var cache_0 = null;
 
 function getQueryVariable(variable)
 {
-    var query = window.location.search.substring(1);
+    var query = window.location.hash.slice(1);
     var vars = query.split("&");
     for (var i=0;i<vars.length;i++) {
         var pair = vars[i].split("=");
@@ -127,8 +128,8 @@ function connect_and_send(server, what2send) {
 		if (getMsg.type === 0) {
 			// -- Result of message sending
 			console.log("[ws.onmessage] Server replies: OK");
-			var full_url = `${getUrlWithoutParam()}?hash=${cache_0}&key=${$('#input_key').val()}`;
-			var hash_url = `${getUrlWithoutParam()}?hash=${cache_0}`;
+			var full_url = `${getUrlWithoutParam()}#hash=${cache_0}&key=${$('#input_key').val()}`;
+			var hash_url = `${getUrlWithoutParam()}#hash=${cache_0}`;
 			var res = `[Full path]\n${full_url}\n\n[Hash only]\n${hash_url}\n`;
 			$('#output_msg').val(res);
 			// -- Copy full path
